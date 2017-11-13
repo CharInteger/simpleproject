@@ -1,35 +1,31 @@
 package pro.simpleproject.core.intra;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+public class IntraContact {
 
-import pro.simpleproject.core.intra.server.ServerExecutor;
+	private String contact;
+	private String address;
+	private int port;
 
-public class IntraModel {
-
-	private static final Map<String, IntraContact> contacts = new LinkedHashMap<>();
-
-	public static IntraContact setContact(IntraContact contact) {
-		return contacts.put(contact.getContact(), contact);
+	public IntraContact(String address, int port) {
+		this.address = address;
+		this.port = port;
+		this.contact = address + ":" + port;
 	}
 
-	public static IntraContact getContact(String contact) {
-		return contacts.get(contact);
+	public String getContact() {
+		return contact;
 	}
 
-	public static boolean hasContact(String contact) {
-		return contacts.containsKey(contact);
+	public String getAddress() {
+		return address;
 	}
 
-	public static void removeContact(String contact) {
-		contacts.remove(contact);
+	public int getPort() {
+		return port;
 	}
 
-	public static void close() {
-		for (IntraContact c : contacts.values()) {
-			c.close();
-		}
-		ServerExecutor.close();
+	public void close() {
+		
 	}
 
 }
