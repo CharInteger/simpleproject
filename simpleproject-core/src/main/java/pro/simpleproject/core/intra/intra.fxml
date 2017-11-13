@@ -5,14 +5,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 
-<TilePane fx:controller="pro.simpleproject.core.intra.IntraConnectController" fx:id="pane_base" alignment="CENTER" style="-fx-padding:0 0 100 0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane fx:controller="pro.simpleproject.core.intra.IntraConnectController" fx:id="pane_base" alignment="CENTER" hgap="50" style="-fx-padding:0 0 100 0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
 		<ComboBox fx:id="combobox0" editable="true" prefHeight="30.0" prefWidth="200.0" promptText="255.255.255.255:12345">
 		</ComboBox>
 		<Button fx:id="button0" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="commit-button" onAction="#commit">
 			<graphic>
-				<SVGPath styleClass="svg-fill" content="M0 3l5-2v12l-5 2zM6 0.5l5 3v11.5l-5-2.5zM12 3.5l4-3v12l-4 3z" />
+				<SVGPath content="M0 3l5-2v12l-5 2zM6 0.5l5 3v11.5l-5-2.5zM12 3.5l4-3v12l-4 3z" />
 			</graphic>
 		</Button>
 	</children>
-</TilePane>
+</FlowPane>
