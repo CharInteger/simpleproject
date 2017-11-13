@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<VBox fx:controller="pro.simpleproject.core.intra.IntraChatController" fx:id="pane_base" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<SplitPane fx:id="pane_split" dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
+			<items>
+				<VBox minHeight="100.0" prefHeight="500.0">
+					<children>
+						<StackPane fx:id="pane_stack" VBox.vgrow="ALWAYS">
+							<children>
+								<ScrollPane fx:id="pane_scroll" hbarPolicy="NEVER" fitToWidth="true" fitToHeight="true">
+									<content>
+										<VBox fx:id="pane_content0">
+										</VBox>
+									</content>
+								</ScrollPane>
+							</children>
+						</StackPane>
+						<FlowPane fx:id="pane_flow" alignment="CENTER" hgap="30" maxHeight="10.0" prefHeight="2.0" minHeight="2.0" onMouseMoved="#showpaneflow" onMouseExited="#hidepaneflow">
+							<children>
+								<Button fx:id="pane_flow_button0" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" visible="false" style="-fx-shape:'M9 2.5v5l5-5v11l-5-5v5l-5.5-5.5z';" onAction="#paneflowbutton0">
+								</Button>
+								<Button fx:id="pane_flow_button1" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" visible="false" style="-fx-shape:'M8 13.5v-5l-5 5v-11l5 5v-5l5.5 5.5z';" onAction="#paneflowbutton1">
+								</Button>
+							</children>
+						</FlowPane>
+					</children>
+				</VBox>
+				<HTMLEditor fx:id="editor" minHeight="100.0"></HTMLEditor>
+			</items>
+		</SplitPane>
+		<AnchorPane fx:id="pane_anchor" minHeight="35.0" prefHeight="35.0" maxHeight="35.0">
+			<children>
+				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" onAction="#paneanchorbutton0">
+					<graphic>
+						<SVGPath content="M13 15l3-8h-13l-3 8zM2 6l-2 9v-13h4.5l2 2h6.5v2z" />
+					</graphic>
+				</Button>
+				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" onAction="#paneanchorbutton1">
+					<graphic>
+						<SVGPath content="M8 0.5l-7.5 7.5h4.5v8h6v-8h4.5z" />
+					</graphic>
+				</Button>
+			</children>
+		</AnchorPane>
+	</children>
+</VBox>
