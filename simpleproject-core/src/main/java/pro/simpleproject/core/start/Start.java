@@ -21,7 +21,7 @@ public class Start extends Application {
 	public void start(Stage arg) {
 		try {
 			stage = arg;
-			Scene scene = new Scene(new PrimaryPaneBuilder().build(), 800, 600);
+			Scene scene = new Scene(PrimaryPaneBuilder.build(), 800, 600);
 			scene.getStylesheets().add(getClass().getResource("start.css").toExternalForm());
 			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.setScene(scene);
