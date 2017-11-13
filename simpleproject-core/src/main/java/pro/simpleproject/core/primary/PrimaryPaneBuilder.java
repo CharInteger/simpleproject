@@ -15,8 +15,9 @@ public class PrimaryPaneBuilder {
 		return pane;
 	}
 
-	public Pane build() throws IOException {
-		pane = (BorderPane) FXMLLoader.load(getClass().getResource("primary.fxml"));
+	public static Pane build() throws IOException {
+		pane = (BorderPane) FXMLLoader.load(PrimaryPaneBuilder.class.getResource("primary.fxml"));
+		pane.getStylesheets().add(PrimaryPaneBuilder.class.getResource("primary.css").toExternalForm());
 		AnchorPane root = new AnchorPane(pane);
 		AnchorPane.setLeftAnchor(pane, 3.0);
 		AnchorPane.setRightAnchor(pane, 3.0);
