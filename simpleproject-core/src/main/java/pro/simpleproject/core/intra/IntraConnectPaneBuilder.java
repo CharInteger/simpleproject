@@ -1,27 +1,26 @@
 package pro.simpleproject.core.intra;
 
-import java.io.IOException;
-
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.TilePane;
 
 public class IntraConnectPaneBuilder {
 
 	private static Pane pane;
 
-	private Pane build() throws IOException {
-		TilePane pane = (TilePane) FXMLLoader.load(getClass().getResource("intra.fxml"));
-		return pane;
+	private static Pane build() {
+		try {
+			FlowPane pane = (FlowPane) FXMLLoader.load(IntraConnectPaneBuilder.class.getResource("intra.fxml"));
+			return pane;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public static Pane get() {
 		if (pane == null) {
-			try {
-				pane = new IntraConnectPaneBuilder().build();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			pane = build();
 		}
 		return pane;
 	}
