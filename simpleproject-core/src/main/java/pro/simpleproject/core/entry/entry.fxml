@@ -5,15 +5,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:controller="pro.simpleproject.core.entry.EntryController" fx:id="pane_base" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane fx:controller="pro.simpleproject.core.entry.EntryController" fx:id="pane_base" alignment="CENTER" hgap="50" style="-fx-padding:0 0 100 0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<ComboBox fx:id="combobox_input" editable="true" AnchorPane.topAnchor="100.0" AnchorPane.leftAnchor="200.0" prefHeight="30.0" prefWidth="200.0">
+		<ComboBox fx:id="combobox0" editable="true" prefHeight="30.0" prefWidth="200.0">
 		</ComboBox>
-		<Button fx:id="button_commit" contentDisplay="GRAPHIC_ONLY" AnchorPane.topAnchor="200.0" AnchorPane.leftAnchor="280.0" mnemonicParsing="false" styleClass="commit-button" onAction="#commit">
+		<Button fx:id="button0" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="commit-button" onAction="#commit">
 			<graphic>
-				<SVGPath styleClass="svg-fill" scaleX="3" scaleY="2"
-					content="M13.333 0h-10.666c-1.467 0-2.667 1.2-2.667 2.667v10.666c0 1.468 1.2 2.667 2.667 2.667h10.666c1.467 0 2.667-1.199 2.667-2.667v-10.666c0-1.467-1.2-2.667-2.667-2.667zM13.333 2c0.125 0 0.243 0.036 0.344 0.099l-5.678 4.694-5.677-4.694c0.101-0.063 0.219-0.099 0.344-0.099h10.666zM2.667 14c-0.030 0-0.060-0.002-0.089-0.006l3.525-4.89-0.457-0.457-3.646 3.646v-9.549l6 7.256 6-7.256v9.549l-3.646-3.646-0.457 0.457 3.525 4.89c-0.029 0.004-0.059 0.006-0.088 0.006h-10.666z" />
+				<SVGPath scaleX="3" scaleY="2" content="M13.333 0h-10.666c-1.467 0-2.667 1.2-2.667 2.667v10.666c0 1.468 1.2 2.667 2.667 2.667h10.666c1.467 0 2.667-1.199 2.667-2.667v-10.666c0-1.467-1.2-2.667-2.667-2.667zM13.333 2c0.125 0 0.243 0.036 0.344 0.099l-5.678 4.694-5.677-4.694c0.101-0.063 0.219-0.099 0.344-0.099h10.666zM2.667 14c-0.030 0-0.060-0.002-0.089-0.006l3.525-4.89-0.457-0.457-3.646 3.646v-9.549l6 7.256 6-7.256v9.549l-3.646-3.646-0.457 0.457 3.525 4.89c-0.029 0.004-0.059 0.006-0.088 0.006h-10.666z" />
 			</graphic>
 		</Button>
 	</children>
-</AnchorPane>
+</FlowPane>
