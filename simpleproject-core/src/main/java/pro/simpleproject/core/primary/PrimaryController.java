@@ -1,14 +1,16 @@
 package pro.simpleproject.core.primary;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import pro.simpleproject.core.tray.TrayBuilder;
+import pro.simpleproject.core.entry.EntryPaneBuilder;
+import pro.simpleproject.core.extra.ExtraContactPaneBuilder;
+import pro.simpleproject.core.intra.IntraContactPaneBuilder;
 
 public class PrimaryController {
+
 	public BorderPane pane_base;
 	public Pane pane_top;
 	public final double[] d = new double[2];
@@ -29,8 +31,7 @@ public class PrimaryController {
 	}
 
 	public void close(ActionEvent e) {
-		Platform.exit();
-		TrayBuilder.close();
+		PrimaryService.close();
 	}
 
 	public void maximize(ActionEvent e) {
@@ -48,6 +49,22 @@ public class PrimaryController {
 
 	public void minimize2(ActionEvent e) {
 		pane_system.getScene().getWindow().hide();
+	}
+
+	public void open1() {
+		pane_base.setLeft(IntraContactPaneBuilder.get());
+		pane_base.setCenter(null);
+		pane_base.setRight(null);
+	}
+
+	public void open2() {
+		if (PrimaryService.entry()) {
+			pane_base.setCenter(EntryPaneBuilder.get());
+			pane_base.setLeft(null);
+		} else {
+			pane_base.setLeft(ExtraContactPaneBuilder.get());
+			pane_base.setCenter(null);
+		}
 	}
 
 }
