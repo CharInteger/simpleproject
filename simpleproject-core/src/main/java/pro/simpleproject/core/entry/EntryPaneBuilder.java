@@ -10,19 +10,18 @@ public class EntryPaneBuilder {
 
 	public static Pane get() {
 		if (pane == null) {
-			pane = build();
+			build();
 		}
 		return pane;
 	}
 
-	private static Pane build() {
+	private static void build() {
 		try {
-			FlowPane pane = (FlowPane) FXMLLoader.load(EntryPaneBuilder.class.getResource("entry.fxml"));
-			return pane;
+			FXMLLoader f = new FXMLLoader(EntryPaneBuilder.class.getResource("entry.fxml"));
+			pane = (FlowPane) f.load();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 
 }
