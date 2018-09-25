@@ -3,7 +3,6 @@ package pro.simpleproject.core.entry;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
-import pro.simpleproject.core.extra.ExtraContactPaneBuilder;
 import pro.simpleproject.core.primary.PrimaryPaneBuilder;
 
 public class EntryController {
@@ -17,8 +16,8 @@ public class EntryController {
 		if (v != null && v.length() > 0) {
 			boolean e = EntryService.run(v);
 			if (e) {
-				PrimaryPaneBuilder.getPane().setLeft(ExtraContactPaneBuilder.get());
-				PrimaryPaneBuilder.getPane().setCenter(null);
+				PrimaryPaneBuilder.get().setLeft(null);
+				PrimaryPaneBuilder.get().setCenter(null);
 			}
 		}
 	}
