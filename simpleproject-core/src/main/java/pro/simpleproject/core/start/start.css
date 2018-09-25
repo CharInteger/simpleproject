@@ -1,1 +1,29 @@
+/* JavaFX CSS */
+.root{
+    -fx-base: #00cccc;
+    -fx-background: #ffffff;
+    -fx-control-inner-background: #ffffff;
+}
 
+.button:hover{
+     -fx-cursor: hand;
+}
+
+SVGPath{
+    -fx-fill: #ffffff;
+}
+
+.tree-view{
+    -fx-pref-width: 200.0px;
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+}
+
+.tree-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-cell:filled:selected{
+    -fx-background: #ffffff;
+}
+
+.scroll-pane{
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0;
+}
