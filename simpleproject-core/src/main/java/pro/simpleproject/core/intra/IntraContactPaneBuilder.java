@@ -9,22 +9,15 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
-import pro.simpleproject.core.helper.ResizeHelper;
+import pro.simpleproject.core.intra.model.IntraContact;
+import pro.simpleproject.core.intra.model.IntraModel;
 import pro.simpleproject.core.intra.server.ServerExecutor;
 import pro.simpleproject.core.primary.PrimaryPaneBuilder;
 
 public class IntraContactPaneBuilder {
 
-	private static TreeView<Text> view;
 	private static TreeItem<Text> root;
 	private static ContextMenu contextMenu;
-
-	public static TreeView<Text> get() {
-		if (view == null) {
-			view = build();
-		}
-		return view;
-	}
 
 	public static TreeView<Text> build() {
 		root = new TreeItem<Text>();
@@ -47,55 +40,50 @@ public class IntraContactPaneBuilder {
 				tv.setContextMenu(viewContextMenu());
 			}
 		});
-		ResizeHelper.recursor(tv);
 		return tv;
 	}
 
 	public static void add(String addr, int port) {
-		IntraContact intraContact = new IntraContact(addr, port);
-		if (!IntraModel.hasContact(intraContact.getContact())) {
-			addItem(intraContact);
+		if (!IntraModel.hasContact(addr)) {
+			addItem(addr);
 		}
-		chat(intraContact.getContact());
+		IntraModel.setContact(addr, port);
+		chat(addr);
 	}
 
-	private static void addItem(IntraContact intraContact) {
-		IntraModel.setContact(intraContact);
-		TreeItem<Text> item = new TreeItem<Text>(new Text(intraContact.getContact()));
+	private static void addItem(String addr) {
+		TreeItem<Text> item = new TreeItem<Text>(new Text(addr));
 		root.getChildren().add(item);
 	}
 
-	private static void removeItem(String contact) {
-		if (IntraModel.hasContact(contact)) {
-			IntraModel.removeContact(contact);
-		}
+	private static void removeItem(String addr) {
+		IntraModel.removeContact(addr);
 		ObservableList<TreeItem<Text>> list = root.getChildren();
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getValue().getText().equals(contact)) {
+			if (list.get(i).getValue().getText().equals(addr)) {
 				list.remove(i);
 			}
 		}
-		PrimaryPaneBuilder.getPane().setCenter(null);
+		PrimaryPaneBuilder.get().setCenter(null);
 	}
 
-	private static void chat(String contact) {
-		IntraContact intraContact = IntraModel.getContact(contact);
+	private static void chat(String addr) {
+		IntraContact intraContact = IntraModel.getContact(addr);
 		if (intraContact != null) {
-			PrimaryPaneBuilder.getPane().setCenter(IntraChatPaneBuilder.build(intraContact));
+			PrimaryPaneBuilder.get().setCenter(IntraPaneBuilder.getChat(intraContact));
 		}
-
 	}
 
-	private static ContextMenu userContextMenu(String contact) {
+	private static ContextMenu userContextMenu(String addr) {
 		ContextMenu contextMenu = new ContextMenu();
 		MenuItem menuItem0 = new MenuItem("chat");
 		menuItem0.setOnAction(e -> {
-			chat(contact);
+			chat(addr);
 		});
 		contextMenu.getItems().add(menuItem0);
 		MenuItem menuItem1 = new MenuItem("remove");
 		menuItem1.setOnAction(e -> {
-			removeItem(contact);
+			removeItem(addr);
 		});
 		contextMenu.getItems().add(menuItem1);
 		return contextMenu;
@@ -111,7 +99,7 @@ public class IntraContactPaneBuilder {
 			contextMenu.getItems().add(menuItem0);
 			MenuItem menuItem1 = new MenuItem("contact");
 			menuItem1.setOnAction(e -> {
-				PrimaryPaneBuilder.getPane().setCenter(IntraConnectPaneBuilder.get());
+				PrimaryPaneBuilder.get().setCenter(IntraPaneBuilder.getConnect());
 			});
 			contextMenu.getItems().add(menuItem1);
 		}
