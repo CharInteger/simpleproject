@@ -22,7 +22,7 @@
 								</ScrollPane>
 							</children>
 						</StackPane>
-						<FlowPane fx:id="pane_flow" alignment="CENTER" hgap="30" maxHeight="10.0" prefHeight="2.0" minHeight="2.0" onMouseMoved="#showpaneflow" onMouseExited="#hidepaneflow">
+						<FlowPane fx:id="pane_flow" alignment="CENTER" hgap="30" maxHeight="5.0" prefHeight="2.0" minHeight="2.0" onMouseMoved="#showpaneflow" onMouseExited="#hidepaneflow">
 							<children>
 								<Button fx:id="pane_flow_button0" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" visible="false" style="-fx-shape:'M9 2.5v5l5-5v11l-5-5v5l-5.5-5.5z';" onAction="#paneflowbutton0">
 								</Button>
@@ -35,16 +35,16 @@
 				<HTMLEditor fx:id="editor" minHeight="100.0"></HTMLEditor>
 			</items>
 		</SplitPane>
-		<AnchorPane fx:id="pane_anchor" minHeight="35.0" prefHeight="35.0" maxHeight="35.0">
+		<AnchorPane minHeight="35.0" prefHeight="35.0" maxHeight="35.0">
 			<children>
-				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" onAction="#paneanchorbutton0">
+				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" onAction="#paneanchorbutton0">
 					<graphic>
 						<SVGPath content="M13 15l3-8h-13l-3 8zM2 6l-2 9v-13h4.5l2 2h6.5v2z" />
 					</graphic>
 				</Button>
-				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" onAction="#paneanchorbutton1">
+				<Button contentDisplay="GRAPHIC_ONLY" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" onAction="#paneanchorbutton1">
 					<graphic>
-						<SVGPath content="M8 0.5l-7.5 7.5h4.5v8h6v-8h4.5z" />
+						<SVGPath content="M8 1c4.418 0 8 2.91 8 6.5s-3.582 6.5-8 6.5c-0.424 0-0.841-0.027-1.247-0.079-1.718 1.718-3.77 2.027-5.753 2.072v-0.421c1.071-0.525 2-1.48 2-2.572 0-0.152-0.012-0.302-0.034-0.448-1.809-1.192-2.966-3.012-2.966-5.052 0-3.59 3.582-6.5 8-6.5z" />
 					</graphic>
 				</Button>
 			</children>
