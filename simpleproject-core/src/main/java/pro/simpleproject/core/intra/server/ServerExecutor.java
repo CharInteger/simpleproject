@@ -26,6 +26,7 @@ public class ServerExecutor {
 		if (server != null) {
 			server.close();
 		}
+		executor.shutdown();
 	}
 
 }
