@@ -51,7 +51,7 @@ public class IntraContactPaneBuilder {
 		chat(addr);
 	}
 
-	private static void addItem(String addr) {
+	public static void addItem(String addr) {
 		TreeItem<Text> item = new TreeItem<Text>(new Text(addr));
 		root.getChildren().add(item);
 	}
